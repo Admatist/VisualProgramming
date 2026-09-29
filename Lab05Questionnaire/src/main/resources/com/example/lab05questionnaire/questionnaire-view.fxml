@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.lab05questionnaire.QuestionnaireController">
+    <padding>
+        <Insets top="15" right="20" bottom="15" left="20"/>
+    </padding>
+
+    <Label text="АНКЕТА СТУДЕНТА" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <!-- Основные поля ввода -->
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints minWidth="120"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="ФИО:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtFullName" promptText="Введите ФИО" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtEmail" promptText="example@mail.com" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Группа:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtGroup" promptText="Введите учебную группу" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Город:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cmbCity" promptText="Выберите город" prefWidth="200" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Дата рождения:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="dpBirthDate" promptText="Выберите дату" prefWidth="200" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <!-- Выбор курса (ToggleGroup courseGroup) -->
+    <VBox spacing="5">
+        <Label text="Курс:" style="-fx-font-weight: bold;"/>
+        <HBox spacing="15">
+            <fx:define>
+                <ToggleGroup fx:id="courseGroup"/>
+            </fx:define>
+            <RadioButton fx:id="rbCourse1" text="1" toggleGroup="$courseGroup"/>
+            <RadioButton fx:id="rbCourse2" text="2" toggleGroup="$courseGroup"/>
+            <RadioButton fx:id="rbCourse3" text="3" toggleGroup="$courseGroup"/>
+            <RadioButton fx:id="rbCourse4" text="4" toggleGroup="$courseGroup"/>
+        </HBox>
+    </VBox>
+
+    <!-- Выбор формы обучения (ToggleGroup studyFormGroup) -->
+    <VBox spacing="5">
+        <Label text="Форма обучения:" style="-fx-font-weight: bold;"/>
+        <HBox spacing="15">
+            <fx:define>
+                <ToggleGroup fx:id="studyFormGroup"/>
+            </fx:define>
+            <RadioButton fx:id="rbFullTime" text="Очная" toggleGroup="$studyFormGroup"/>
+            <RadioButton fx:id="rbOnline" text="Дистанционная" toggleGroup="$studyFormGroup"/>
+        </HBox>
+    </VBox>
+
+    <!-- Дополнительные параметры -->
+    <VBox spacing="5">
+        <Label text="Дополнительно:" style="-fx-font-weight: bold;"/>
+        <HBox spacing="15">
+            <CheckBox fx:id="chkDormitory" text="Общежитие"/>
+            <CheckBox fx:id="chkScholarship" text="Стипендия"/>
+            <CheckBox fx:id="chkActivist" text="Активист"/>
+        </HBox>
+    </VBox>
+
+    <!-- Согласие на обработку данных (Самостоятельная часть) -->
+    <CheckBox fx:id="chkConsent" text="Согласен на обработку персональных данных"/>
+
+    <!-- Кнопки управления -->
+    <HBox spacing="10">
+        <Button fx:id="btnCreate" text="Сформировать" onAction="#onCreateClick"/>
+        <Button text="Очистить" onAction="#onClearClick"/>
+        <Button text="Выход" onAction="#onExitClick"/>
+    </HBox>
+
+    <!-- Результат -->
+    <Label text="Результат:" style="-fx-font-weight: bold;"/>
+    <Label fx:id="lblResult" text="Карточка не сформирована" wrapText="true"/>
+</VBox>
