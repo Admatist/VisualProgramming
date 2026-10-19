@@ -1,14 +1,14 @@
 target/
-!.mvn/wrapper/maven-wrapper.jar
+!sro_vp_var17/.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 .kotlin
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
+sro_vp_var17/.idea/modules.xml
+sro_vp_var17/.idea/jarRepositories.xml
+sro_vp_var17/.idea/compiler.xml
+sro_vp_var17/.idea/libraries/
 *.iws
 *.iml
 *.ipr
