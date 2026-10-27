@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="10" stylesheets="@validation.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.atu.lab09.RegistrationController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Регистрация на мероприятие" />
+
+    <VBox spacing="3">
+        <Label text="ФИО:" />
+        <TextField fx:id="fullNameField" promptText="Введите Фамилию Имя" />
+        <Label fx:id="nameErrorLabel" styleClass="error-label" />
+    </VBox>
+
+    <VBox spacing="3">
+        <Label text="Email:" />
+        <TextField fx:id="emailField" promptText="example@domain.com" />
+        <Label fx:id="emailErrorLabel" styleClass="error-label" />
+    </VBox>
+
+    <VBox spacing="3">
+        <Label text="Телефон:" />
+        <TextField fx:id="phoneField" promptText="+77011234567" />
+        <Label fx:id="phoneErrorLabel" styleClass="error-label" />
+    </VBox>
+
+    <VBox spacing="3">
+        <Label text="Пол:" />
+        <fx:define>
+            <ToggleGroup fx:id="genderGroup" />
+        </fx:define>
+        <HBox spacing="15">
+            <RadioButton text="Мужской" toggleGroup="$genderGroup" selected="true" />
+            <RadioButton text="Женский" toggleGroup="$genderGroup" />
+        </HBox>
+    </VBox>
+
+    <VBox spacing="3">
+        <Label text="Размер футболки:" />
+        <ComboBox fx:id="sizeComboBox" maxWidth="Infinity" />
+    </VBox>
+
+    <Button maxWidth="Infinity" onAction="#handleRegisterButton" style="-fx-base: #4CAF50; -fx-text-fill: white;" text="Зарегистрироваться" />
+
+    <Label fx:id="successLabel" style="-fx-text-fill: green; -fx-font-weight: bold;" />
+</VBox>
