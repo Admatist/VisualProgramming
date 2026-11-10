@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="kz.atu.lab11.controller.StudentController">
+    <padding>
+        <Insets top="15.0" right="15.0" bottom="15.0" left="15.0" />
+    </padding>
+
+    <HBox spacing="10.0" alignment="CENTER_LEFT">
+        <Label text="Поиск:" />
+        <TextField fx:id="txtSearch" promptText="Поиск по имени..." HBox.hgrow="ALWAYS" />
+        <Label text="Группа:" />
+        <ComboBox fx:id="cmbGroupFilter" prefWidth="150.0" />
+    </HBox>
+
+    <TableView fx:id="tableStudents" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colName" text="ФИО" prefWidth="200.0" />
+            <TableColumn fx:id="colGroup" text="Группа" prefWidth="120.0" />
+            <TableColumn fx:id="colGpa" text="GPA" prefWidth="80.0" />
+        </columns>
+    </TableView>
+
+    <Label fx:id="lblCount" text="Найдено студентов: 0" style="-fx-font-weight: bold;" />
+
+    <GridPane hgap="10.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints minWidth="60.0" />
+            <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+
+        <Label text="ФИО:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+        <TextField fx:id="txtName" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+        <Label text="Группа:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+        <TextField fx:id="txtGroup" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+        <Label text="GPA:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+        <TextField fx:id="txtGpa" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+    </GridPane>
+
+    <HBox spacing="10.0" alignment="CENTER_RIGHT">
+        <Button text="Добавить" onAction="#onAdd" prefWidth="100.0" />
+        <Button text="Обновить" onAction="#onUpdate" prefWidth="100.0" />
+        <Button text="Удалить" onAction="#onDelete" prefWidth="100.0" />
+    </HBox>
+</VBox>
